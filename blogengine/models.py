@@ -23,7 +23,10 @@ class Post(models.Model):
     slug = models.SlugField(max_length=40, unique=True)
     author = models.ForeignKey(User)
     categories = models.ManyToManyField(Category, blank=True, null=True, through='CategoryToPost')
-
+    
+    class Meta:
+	    ordering = ["-pub_date"]
+	
     def __unicode__(self):
         return self.title
 

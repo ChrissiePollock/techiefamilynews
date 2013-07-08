@@ -4,22 +4,7 @@ from django.core.paginator import Paginator, EmptyPage
 from blogengine.models import Post, Category
 from django.template import RequestContext
 from django.contrib.syndication.views import Feed
-
-def getPosts(request, selected_page=1):
-    # Get all blog posts
-    posts = Post.objects.all().order_by('-pub_date')
-
-    # Add pagination
-    pages = Paginator(posts, 5)
-
-    # Get the specified page
-    try:
-        returned_page = pages.page(selected_page)
-    except EmptyPage:
-        returned_page = pages.page(pages.num_pages)
-
-    # Display all the posts
-    return render_to_response('posts.html', { 'posts':returned_page.object_list, 'page':returned_page})
+from django.contrib.flatpages.models import FlatPage
 
 def getPost(request, postSlug):
     # Get specified post
