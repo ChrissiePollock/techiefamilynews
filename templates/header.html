@@ -3,44 +3,24 @@
 <head>
 	<meta charset="utf-8" />
 	<title>TechieFamily</title>
-	<link rel="stylesheet" href="main.css">
-	<script src="added.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/style.css">
 </head>
 
 <body>
-	<div id="big_wrapper">
-	<header id= "top_header">
-		<image src = static/TFTop.png>
-		</header>
-				
-		
+	<div id="big_wrapper"> 
+	<header id= "top_header"> 
+		<image src = /static/TFTop.png>
 			<ul id="top_menu">  
 				<li><a href="/feeds/posts/"><img src="/static/rss.png" width="50px" height="50px"></a>
 	<h6>TF News RSS</h6></a></li>
-			    <li><a href="#">Home</a></li>  
-			    <li><a href="#" class="drop">CJ</a></li>  
-			    <li><a href="#" class="drop">Zeb</a></li>  
-			    <li><a href="#" class="drop">Hudi</a></li>  
-			    <li><a href="#" class="drop">Contact</a></li>  
-			</ul>
-		</nav>
+			    <li><a href="/">Blog</a></li> 
+	                {% load flatpages %}
+	                {% get_flatpages as flatpages %}
+	                {% for flatpage in flatpages %}
+	                <li><a href="{{ flatpage.url }}" class="drop">{{ flatpage.title }}</a></li>
+	                {% endfor %}
+	</header>
+		
+		
 
-
-<html>
-    <head>
-        <title>TechieFamily News</title>
-        <link rel="stylesheet" type="text/css" href="/static/style.css" />
-    </head>
-    <body>
-        <div id="main">
-            
-            
- <!--             <ul id="pageList">
-              <li><a href="/">Home</a></li> 
-                {% load flatpages %}
-                {% get_flatpages as flatpages %}
-                {% for flatpage in flatpages %}
-                <li><a href="{{ flatpage.url }}">{{ flatpage.title }}</a></li>
-                {% endfor %} 
-            </ul> -->
-
+           
