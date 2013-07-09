@@ -1,4 +1,4 @@
-from django.conf.urls.defaults import patterns, include, url
+from django.conf.urls import patterns, include, url
 from blogengine.views import PostsFeed
 from django.views.generic import ListView
 from blogengine.models import Category, Post
